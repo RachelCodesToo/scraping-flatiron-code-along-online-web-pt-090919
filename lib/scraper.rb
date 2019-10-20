@@ -25,6 +25,14 @@ class Scraper
     courses = get_page.css("article.post")
   end 
     
+  def make_courses
+    course_instances = get_courses.collect do |course| 
+      new_inst = Course.new
+      new_inst.title = course.css("h2").text
+      new_inst.schedule = cousre.css("em.date").text
+      new_inst.description = course.css("p").text
+    end 
+  end 
   
 end
 
