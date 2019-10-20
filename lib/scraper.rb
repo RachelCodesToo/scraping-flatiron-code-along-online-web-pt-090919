@@ -18,10 +18,12 @@ class Scraper
   
   def get_page 
     html= Nokogiri::HTML(html)
+    html
   end 
   
   def get_courses
-    
+    courses = get_page.css("article.post")
+  end 
     
   
 end
